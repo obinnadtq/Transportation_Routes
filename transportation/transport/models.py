@@ -21,15 +21,16 @@ class Station(models.Model):
     return f"{self.name}{' (♿)' if self.accessible else ''}"
 
 class Stop(models.Model):
+
     class Meta:
         unique_together = (('line', 'stop_number'))
 
-        def get_absolute_url(self):
+    def get_absolute_url(self):
             return "/stops"
 
-        line = models.ForeignKey(Line, on_delete=models.CASCADE)
-        station = models.ForeignKey(Station, on_delete=models.CASCADE)
-        stop_number = models.PositiveIntegerField()
+    line = models.ForeignKey(Line, on_delete=models.CASCADE)
+    station = models.ForeignKey(Station, on_delete=models.CASCADE)
+    stop_number = models.PositiveIntegerField()
 
-        def __str__(self):
+    def __str__(self):
             return f"{self.line.name} -- {self.station.name} [{self.stop_number}]"

@@ -26,12 +26,14 @@
                     </ul>
                 </td>
                 <td>
-                    <a href="{% url "delete_line" line.id %}" style="text-decoration: none; color: inherit;">❌<</a>
+                    <a href="{% url 'delete_line' line.id %}" style="text-decoration: none; color: inherit;">❌</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url "create_line" %}" class="create-line">➕</a>
+    <a href="{% url 'create_line' %}" style="display: inherit; text-align: center;
+    border-radius: 15px; text-decoration: none;
+    color: inherit; padding: 4px; background-color: lightgreen;">➕</a>
 </div>
 {% endblock %}
